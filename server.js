@@ -12,8 +12,10 @@ io.on('connection', (socket) => {
   })
 
   socket.on('chat message', (msg) => {
-    io.sockets.emit('chat message', msg);
+    io.sockets.emit('chat message', `${msg.currentUser}: ${msg.msg}`);
   })
+
+
 
   io.sockets.emit('disconnect', { text: 'A user has disconnected'});
   
